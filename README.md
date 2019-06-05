@@ -7,3 +7,5 @@ You can edit the `train.bmp` with e.g. Paint and change the background.
 
 # Display
 I used the [2.13inch E-Ink display HAT for Raspberry Pi](https://www.waveshare.com/2.13inch-e-Paper-HAT.htm)
+
+![running example](ShowIPEinkRPi.jpg)
