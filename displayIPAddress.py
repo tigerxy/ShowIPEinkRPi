@@ -31,7 +31,7 @@ try:
 		draw.text((10, 20), "No IP-Address :(", font = font24, fill = 0)
 		draw.text((10, 50), "Plugin Ethernet", font = fontbold24, fill = 0)
 		draw.text((10, 80), "Cable...!", font = fontbold24, fill = 0)
-		epd.display(epd.getbuffer(blankimage.rotate(180)))
+		epd.display(epd.getbuffer(image.rotate(180)))
 		epd.sleep()
 	while not tryGetIPAddress():
 		time.sleep(10)
