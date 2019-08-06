@@ -22,18 +22,19 @@ try:
 	font18 = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMono.ttf', 18)
 	font24 = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMono.ttf', 24)
 	fontbold24 = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf', 24)
-	
+		
 	# Waiting for IP-Address
-	if not tryGetIPAddress():
+	while not tryGetIPAddress():
 		# Drawing warning
+		date_time = str(datetime.datetime.now())[:19] 
 		image = Image.new('1', (epd2in13.EPD_HEIGHT, epd2in13.EPD_WIDTH), 255)  # 255: clear the frame
 		draw = ImageDraw.Draw(image)
-		draw.text((10, 20), "No IP-Address :(", font = font24, fill = 0)
-		draw.text((10, 50), "Plugin Ethernet", font = fontbold24, fill = 0)
-		draw.text((10, 80), "Cable...!", font = fontbold24, fill = 0)
+		draw.text((10, 10), "No IP Address :(", font = font24, fill = 0)
+		draw.text((10, 35), "Plug in Ethernet", font = fontbold24, fill = 0)
+		draw.text((10, 65), "Cable!", font = fontbold24, fill = 0)
+		draw.text((10, 95), date_time, font = font18, fill = 0)
 		epd.display(epd.getbuffer(image.rotate(180)))
 		epd.sleep()
-	while not tryGetIPAddress():
 		time.sleep(10)
 
 	# Collect informations
